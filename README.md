@@ -1,13 +1,17 @@
+
 # Build AI WhatsApp Bots with Pure Python
 
-This guide will walk you through the process of creating a WhatsApp bot using the Meta (formerly Facebook) Cloud API with pure Python, and Flask particular. We'll also integrate webhook events to receive messages in real-time and use OpenAI to generate AI responses. For more information on the structure of the Flask application, you can refer to [this documentation](https://github.com/daveebbelaar/python-whatsapp-bot/tree/main/app).
+This guide will walk you through the process of creating a WhatsApp bot using the Meta (formerly Facebook) Cloud API with pure Python and Flask. We'll also integrate webhook events to receive messages in real-time and use OpenAI to generate AI responses. For more information on the structure of the Flask application, you can refer to [this documentation](https://github.com/daveebbelaar/python-whatsapp-bot/tree/main/app).
 
 ## Prerequisites
 
-1. A Meta developer account — If you don’t have one, you can [create a Meta developer account here](https://developers.facebook.com/).
-2. A business app — If you don't have one, you can [learn to create a business app here](https://developers.facebook.com/docs/development/create-an-app/). If you don't see an option to create a business app, select **Other** > **Next** > **Business**.
-3. Familiarity with Python to follow the tutorial.
-
+1. **A Meta developer account** — If you don’t have one, you can [create a Meta developer account here](https://developers.facebook.com/).
+2. **A business app** — If you don't have one, you can [learn to create a business app here](https://developers.facebook.com/docs/development/create-an-app/). If you don't see an option to create a business app, select **Other** > **Next** > **Business**.
+3. **Familiarity with Python** to follow the tutorial.
+4. **Python 3.6+** installed on your machine. Installation instructions can be found on the [official Python website](https://www.python.org/downloads/).
+5. **pip** for installing Python packages. It comes pre-installed with Python 3.4 and later.
+6. **virtualenv** or any Python environment manager of your choice (optional but recommended for isolating project dependencies).
+7. **ngrok** for creating a secure tunnel to your localhost for webhook development (instructions included below).
 
 ## Table of Contents
 
@@ -31,6 +35,35 @@ This guide will walk you through the process of creating a WhatsApp bot using th
   - [Step 7: Add a Phone Number](#step-7-add-a-phone-number)
   - [Datalumina](#datalumina)
   - [Tutorials](#tutorials)
+
+
+## Operating System Specific Setup
+
+Before proceeding with the tutorial, ensure your development environment is set up according to your operating system.
+
+### Windows
+
+- Download and install Python from the [official Python website](https://www.python.org/downloads/windows/). Make sure to check the option **Add Python to PATH** during installation.
+- Install virtualenv by opening a command prompt and running: `pip install virtualenv`.
+
+### macOS
+
+- Python 2.7 comes pre-installed on macOS, but you can install Python 3 via Homebrew by running `brew install python` in the terminal.
+- Install virtualenv with `pip3 install virtualenv`.
+
+### Linux (Ubuntu/Debian)
+
+- Install Python 3 and pip using your package manager, e.g., `sudo apt-get install python3 python3-pip`.
+- Install virtualenv with `sudo pip3 install virtualenv`.
+
+## Environment Setup
+
+1. **Create a Virtual Environment:** Navigate to your project directory in the terminal and run `virtualenv venv` to create a virtual environment named `venv`.
+2. **Activate the Virtual Environment:**
+   - On Windows, run `.\venv\Scripts\activate`.
+   - On macOS and Linux, run `source venv/bin/activate`.
+3. **Install Requirements:** Install the necessary Python packages by running `pip install -r requirements.txt` within your activated virtual environment.
+
 
 ## Get Started
 
@@ -205,4 +238,4 @@ When dealing with WhatsApp Business API and wanting to experiment without affect
 This document is provided to you by Datalumina. We help data analysts, engineers, and scientists launch and scale a successful freelance business — $100k+ /year, fun projects, happy clients. If you want to learn more about what we do, you can visit our [website](https://www.datalumina.com/) and subscribe to our [newsletter](https://www.datalumina.com/newsletter). Feel free to share this document with your data friends and colleagues.
 
 ## Tutorials
-For video tutorials, visit the YouTube channel: [youtube.com/@daveebbelaar](youtube.com/@daveebbelaar)
+For video tutorials, visit the YouTube channel: [youtube.com/@daveebbelaar](youtube.com/@daveebbelaar)# python_flask_whatsapp_bot_with_open_ai_assistant_apis

@@ -3,7 +3,7 @@ from flask import current_app, jsonify
 import json
 import requests
 
-# from app.services.openai_service import generate_response
+from app.services.openai_service import generate_response
 import re
 
 
@@ -76,24 +76,28 @@ def process_text_for_whatsapp(text):
 
 
 def process_whatsapp_message(body):
+
     wa_id = body["entry"][0]["changes"][0]["value"]["contacts"][0]["wa_id"]
+
     name = body["entry"][0]["changes"][0]["value"]["contacts"][0]["profile"]["name"]
 
     message = body["entry"][0]["changes"][0]["value"]["messages"][0]
     message_body = message["text"]["body"]
 
     # TODO: implement custom function here
-    response = generate_response(message_body)
+    # response = generate_response(message_body)
 
     # OpenAI Integration
-    # response = generate_response(message_body, wa_id, name)
-    # response = process_text_for_whatsapp(response)
+    response = generate_response(message_body, wa_id, name)
+    response = process_text_for_whatsapp(response)
 
     data = get_text_message_input(current_app.config["RECIPIENT_WAID"], response)
     send_message(data)
 
 
 def is_valid_whatsapp_message(body):
+    # print(f" input for is_valid_whatsapp_message is ",body)
+
     """
     Check if the incoming webhook event has a valid WhatsApp message structure.
     """
@@ -104,4 +108,6 @@ def is_valid_whatsapp_message(body):
         and body["entry"][0]["changes"][0].get("value")
         and body["entry"][0]["changes"][0]["value"].get("messages")
         and body["entry"][0]["changes"][0]["value"]["messages"][0]
+        and body["entry"][0]["changes"][0]["contacts"][0]["wa_id"][0]
+
     )
